@@ -1,28 +1,27 @@
 import React, { useEffect, useState } from "react";
 import { dbService } from "fbase";
-const Home = () => {
+import Twitter from "components/Twitter";
+const Home = ({ userObj }) => {
+  console.log(userObj);
   const [twitter, setTwitter] = useState("");
   const [twitters, setTwitters] = useState([]);
-  const gettwitters = async () => {
-    const dbTwitters = await dbService.collection("twitters").get();
-    dbTwitters.forEach((document) => {
-      const twitterObject = {
-        ...document.data(),
-        id: document.id,
-      };
-      setTwitters((prev) => [twitterObject, ...prev]);
-    });
-  };
 
   useEffect(() => {
-    gettwitters();
+    dbService.collection("twitters").onSnapshot((snapshot) => {
+      const twitterArray = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      setTwitters(twitterArray);
+    });
   }, []);
 
   const onSubmit = (event) => {
     event.preventDefault();
     dbService.collection("twitters").add({
-      twitter,
+      text: twitter,
       createId: Date.now(),
+      creatorId: userObj.uid,
     });
     setTwitter("");
   };
@@ -48,9 +47,11 @@ const Home = () => {
       </div>
       <div>
         {twitters.map((twitter) => (
-          <div>
-            <h4>{twitter.twitter}</h4>
-          </div>
+          <Twitter
+            key={twitter.id}
+            twitterObj={twitter}
+            isOwner={twitter.creatorId === userObj.uid}
+          />
         ))}
       </div>
     </>
