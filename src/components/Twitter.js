@@ -1,14 +1,14 @@
-import { dbService } from "fbase";
+import { dbService, storageService } from "fbase";
 import React, { useState } from "react";
-import { createPortal } from "react-dom";
 
 const Twitter = ({ twitterObj, isOwner }) => {
   const [editing, setEditing] = useState(false);
   const [newTwitter, setNewTwitter] = useState(twitterObj.text);
-  const onDeleteClick = () => {
+  const onDeleteClick = async () => {
     const ok = window.confirm("Are you sure you want to delete this twitter?");
     if (ok) {
-      dbService.doc(`twitters/${twitterObj.id}`).delete();
+      await dbService.doc(`twitters/${twitterObj.id}`).delete();
+      await storageService.refFromURL(twitterObj.attachmentUrl).delete();
     }
   };
 
@@ -45,6 +45,9 @@ const Twitter = ({ twitterObj, isOwner }) => {
       ) : (
         <>
           <h4>{twitterObj.text}</h4>
+          {twitterObj.attachmentUrl && (
+            <img src={twitterObj.attachmentUrl} width="50px" height="50px" />
+          )}
           {isOwner && (
             <>
               <button onClick={onDeleteClick}>Delete Twitter</button>
