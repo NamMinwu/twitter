@@ -1,0 +1,297 @@
+@import "https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: black;
+}
+
+input {
+  box-sizing: border-box;
+}
+
+/* Auth */
+.authContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.authInput {
+  padding: 10px;
+  width: 320px;
+  border-radius: 30px;
+  margin-bottom: 10px;
+  outline: none;
+  border: 1px solid black;
+}
+
+.authSubmit {
+  padding: 10px;
+  width: 320px;
+  margin-bottom: 10px;
+  border-radius: 30px;
+  border: none;
+  background-color: #04aaff;
+  cursor: pointer;
+}
+
+.authSwitch {
+  color: #04aaff;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-bottom: 50px;
+  display: block;
+  text-decoration: underline;
+}
+
+.authBtn_g {
+  color: black;
+  background-color: white;
+  width: 170px;
+  padding: 10px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+/* Home */
+.homeContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.factoryForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.factoryMessage {
+  display: flex;
+  width: 320px;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  position: relative;
+  margin-top: 50px;
+}
+
+.factoryInput {
+  border-radius: 20px;
+  padding: 10px 20px;
+  outline: none;
+  flex-grow: 1;
+  height: 40px;
+  border: 1px solid #04aaff;
+  background-color: black;
+  color: white;
+}
+
+.factorySubmit {
+  padding: 10px 0;
+  width: 40px;
+  height: 40px;
+  background-color: #04aaff;
+  border-radius: 50%;
+  position: absolute;
+  right: 0;
+  font-weight: 500;
+  border: 1px solid #04aaff;
+}
+
+.factoryFile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.factoryInputFile {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.factoryInputFile_span {
+  margin-right: 10px;
+  color: #04aaff;
+  cursor: pointer;
+}
+
+.factoryAttachment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.factoryAttachment img {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+}
+
+.factoryAttachmentRemove {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #04aaff;
+  width: 80px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+/* List */
+
+.twitterList {
+  display: flex;
+  flex-direction: column;
+  width: 320px;
+  height: 60px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  position: relative;
+  justify-content: center;
+  margin-bottom: 25px;
+  box-sizing: border-box;
+  background-color: white;
+  border: 1px solid black;
+}
+
+.twitterList img {
+  position: absolute;
+  right: -10px;
+  bottom: -30px;
+}
+
+.twitterIsOwner {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+}
+
+.twitterIsOwner Button {
+  outline: none;
+  background-color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.twitterEdit {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 320px;
+  border: 1px solid black;
+  padding: 20px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  background-color: white;
+  margin-bottom: 25px;
+}
+
+.twitterEditContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.twitterEditInput {
+  border-radius: 20px;
+  padding: 10px 20px;
+  height: 40px;
+  outline: none;
+}
+
+.twitterEditSubmit {
+  height: 25px;
+  border-radius: 20px;
+  text-align: center;
+  margin-top: 20px;
+  background-color: #04aaff;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.twitterEditBtn {
+  height: 25px;
+  border-radius: 20px;
+  text-align: center;
+  margin-top: 5px;
+  border: none;
+  background-color: tomato;
+  color: white;
+  cursor: pointer;
+}
+
+/* Profile */
+.profileContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.profileForm {
+  display: flex;
+  width: 320px;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 20px;
+  position: relative;
+  margin-top: 100px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.9);
+}
+
+.profileInput {
+  border-radius: 20px;
+  padding: 10px 20px;
+  outline: none;
+  flex-grow: 1;
+  height: 40px;
+  width: 100%;
+  border: 1px solid #04aaff;
+  background-color: white;
+}
+
+.profileSubmit {
+  height: 25px;
+  border-radius: 20px;
+  width: 100%;
+  text-align: center;
+  margin-top: 10px;
+  background-color: #04aaff;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.profileBtn {
+  height: 25px;
+  border-radius: 20px;
+  text-align: center;
+  margin-top: 30px;
+  border: none;
+  background-color: tomato;
+  width: 320px;
+  color: white;
+  cursor: pointer;
+}

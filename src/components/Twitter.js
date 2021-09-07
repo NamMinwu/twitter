@@ -1,5 +1,7 @@
 import { dbService, storageService } from "fbase";
 import React, { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash, faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 
 const Twitter = ({ twitterObj, isOwner }) => {
   const [editing, setEditing] = useState(false);
@@ -27,34 +29,54 @@ const Twitter = ({ twitterObj, isOwner }) => {
     setNewTwitter(value);
   };
   return (
-    <div>
+    <div className="twitter">
       {editing ? (
-        <>
-          <form onSubmit={onSubmit}>
+        <div className="twitterEdit">
+          <form onSubmit={onSubmit} className="twitterEditContainer">
             <input
               type="text"
               placeholder="Edit your twitter"
               value={newTwitter}
               onChange={onChange}
               required
+              className="twitterEditInput"
             />
-            <input type="submit" value="Update Twitter" />
+            <input
+              type="submit"
+              value="Update Twitter"
+              className="twitterEditSubmit"
+            />
           </form>
-          <button onClick={toggleEdit}>Cancel</button>
-        </>
+          <button onClick={toggleEdit} className="twitterEditBtn">
+            Cancel
+          </button>
+        </div>
       ) : (
-        <>
+        <div className="twitterList">
           <h4>{twitterObj.text}</h4>
-          {twitterObj.attachmentUrl && (
-            <img src={twitterObj.attachmentUrl} width="50px" height="50px" />
-          )}
+          <div>
+            {twitterObj.attachmentUrl && (
+              <img
+                src={twitterObj.attachmentUrl}
+                width="60px"
+                height="60px"
+                style={{
+                  borderRadius: "50%",
+                }}
+              />
+            )}
+          </div>
           {isOwner && (
-            <>
-              <button onClick={onDeleteClick}>Delete Twitter</button>
-              <button onClick={toggleEdit}>Edit Twitter</button>
-            </>
+            <div className="twitterIsOwner">
+              <button onClick={onDeleteClick} style={{ marginRight: "10px" }}>
+                <FontAwesomeIcon icon={faTrash} />
+              </button>
+              <button onClick={toggleEdit}>
+                <FontAwesomeIcon icon={faPencilAlt} />
+              </button>
+            </div>
           )}
-        </>
+        </div>
       )}
     </div>
   );

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { dbService } from "fbase";
 import Twitter from "components/Twitter";
 import TwitterFactory from "components/TwitterFactory";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Home = ({ userObj }) => {
   const [twitters, setTwitters] = useState([]);
@@ -16,10 +17,8 @@ const Home = ({ userObj }) => {
   }, []);
 
   return (
-    <>
-      <div>
-        <TwitterFactory userObj={userObj} />
-      </div>
+    <div className="homeContainer">
+      <TwitterFactory userObj={userObj} />
       <div>
         {twitters.map((twitter) => (
           <Twitter
@@ -29,7 +28,7 @@ const Home = ({ userObj }) => {
           />
         ))}
       </div>
-    </>
+    </div>
   );
 };
 export default Home;
